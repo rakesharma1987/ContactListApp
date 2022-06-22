@@ -1,0 +1,57 @@
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="contact"
+            type="com.aavss.contactlistapp.model.Contact"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/contact_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                bind:civ_border_width="2dp"
+                bind:civ_border_color="@color/black"
+                bind:photoUri="@{contact.getPhotoUri}"
+                android:src="@drawable/ic_profile"
+                android:layout_gravity="center_vertical"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_10dp">
+
+                <TextView
+                    android:id="@+id/contact_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="@{contact.getName}"/>
+
+                <TextView
+                    android:id="@+id/contact_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@{contact.getPhoneNumber}"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
